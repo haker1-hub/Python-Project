@@ -1,4 +1,5 @@
 #================List==============
+
 d = ["belal waleed ahmed"]
 e = ["mohamed"]
 
@@ -8,8 +9,11 @@ d.append(e)
 print(d)
 d.reverse()
 print(d)
+
 print("=" * 50)
+
 # ===================== Dictionary =====================
+
 user = {
     "name": "belal",
     "age": 16,
@@ -49,8 +53,11 @@ print("=" * 50)
 print(user)
 print(user.setdefault("last name", "waleed"))
 print(user)
+
 print("=" * 50)
+
 # ===================== List =====================
+
 d = ["belal waleed ahmed"]
 e = ["mohamed"]
 
@@ -60,4 +67,5 @@ d.append(e)
 print(d)
 d.reverse()
 print(d)
+
 print("=" * 50)
