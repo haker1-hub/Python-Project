@@ -1,61 +1,77 @@
-# ===================== Calculator =====================
+#                Defind
+def calculator(num1 , num2 , operation):
 
-print("="*80)
-print("Calculator".center(80))
-print("="*80)
+#                Loop
 
-#====================In put============================
-num1 = input("Enter number 1: ").strip().capitalize()
-#========================If=============================
-while num1 != "Exit":
+    while True:
 
-    num1 = input("Enter number 1: ").strip().capitalize()
-    num2 = float(input("Enter number 2: "))
-    operation = input("""Choose operation:
-    1. +
-    2. -
-    3. *
-    4. /
-    5. **
-    6. //
-    7. %
-    = """)
-    if num1 == "Exit":
+            num1 = float(input('Enter number 1 \n -->'))
+            num2 = float(input('Enter number 2  \n -->'))
+            operation = input('Enter operation\n1.+\n2.-\n3.*\n4.**\n5./\n6.//\n7.%\n8.exit-->').strip().title()
 
-        print("Thank you for your time")
+#                verfity
+            if type(num1)  in [float , int] and type(num2) in [float , int] :
 
-        break
+#                System
+                if operation in ["1" ,"+"]:
 
-    if operation in ["1","+"]:
+                      print(num1+num2)
 
-        print(float(num1) + num2)
+                if operation in ["2","-"]:
 
-    elif operation in ["2","-"]:
+                  print(num1-num2)
 
-        print(float(num1) - num2)
+                if operation in ["3" ,"*"]:
 
-    elif operation in ["3","*"]:
+                    print(num1*num2)
 
-        print(float(num1) * num2)
+                if operation in ["4" ,"**"]:
 
-    elif operation in ["4","/"]:
+                    print(num1**num2)
 
-        print("Error" if num2 == 0 else float(num1) / num2)
+                if operation in ["5","/"]:
 
-    elif operation in ["5","**"]:
+                    if num2 == 0 :
 
-        print(float(num1) ** num2)
+                        print("Erorr")
 
-    elif operation in ["6","//"]:
+                    else:
 
-        print("Error" if num2 == 0 else float(num1) // num2)
+                        print(num1/num2)
 
-    elif operation in ["7","%"]:
+                if operation in ["6","//"]:
 
-        print("Error" if num2 == 0 else float(num1) % num2)
+                    if num2 == 0 :
 
-    else:
+                        print("Erorr")
 
-        print("Error:) Try again")
+                    else:   
 
+                        print(num1//num2)
+
+                if operation in ["7","%"]:
+
+                    if num2 == 0 :
+
+                        print( "Erorr")
+
+                    else:
+
+                        print(num1%num2)
+
+                if operation in ["Exit","8"]:
+
+                    print("Good bye")
+                    break
+
+            if type(num1) in  [ str,bool,list,dict,set] or type(num2)  in [str,bool,list,dict,set] : 
+
+                print("You can use float and integer number only try again.")
+
+#            variable
+num1 = float(input('Enter number 1  \n -->'))
+num2 = float(input('Enter number 2  \n -->'))
+operation = input('Enter operation\n1.+\n2.-\n3.*\n4.**\n5./\n6.//\n7.%\n8.exit-->').strip().title()
+
+calculator(num1 , num2 , operation)
 

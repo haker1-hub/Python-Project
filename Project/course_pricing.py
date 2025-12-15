@@ -5,124 +5,90 @@ print("LOG IN".center(80))
 print("="*80)
 
 #===================Informatoin==================
+age=int(input("Enter your real age \n -->"))
 
-fname = input("Enter your frist name : ").capitalize().strip()
-sname = input("Enter your second name : ").capitalize().strip()
-age = int(input("Enter your real age :").strip())
-gmail = input("Enter your gmail :").strip()
-st = input("Are you a student ?").strip().capitalize()
-country = input("Enter your country :").strip().upper()
-course = input("Enter course name :\n1.Python\n2.English\n3.Arabic\nHere:").capitalize()
-username = gmail[:gmail.index("@")]
-password = input("Write your pass word:").strip()
+if age >= 18 :
 
-pw ="B1b2b3b4b5"
-tries = 5
-#=================frist print===================
+    def details(first_name,second_name,gmail):
 
-print(f"Hello {fname} {sname}".title().center(40))
+            print(f"Hello {first_name} {second_name}")
+            print(f"You log in with your gmail  : {gmail}")
 
-#====================While======================
+    first_name = input("Enter your frist name :").capitalize().strip()
+    second_name = input("Enter your second name :").capitalize().strip()
+    gmail = input("Enter your  gmail :")
 
-while password != pw:
+    details(first_name,second_name,gmail)
+    #password verfiy
+    def verfiy(password):
 
-    tries -= 1
-    print(f"Uncorrect password :-) , you have onther {'last' if tries == 0 else tries}tries.")
-    password = input("Write your pass word:").strip()
- 
-    if tries == 0:
+          tries = 5 
+          pw = input ("Enter your password to continue login \n-->")
 
-        break
- 
-    if password == pw:
+          while pw != password: 
 
-        print("correct password")
+              tries -= 1
+              print(f"Wrong pass word :-( , You have {"last"if tries == 0 else tries} tries left")
+              pw = input ("Enter your password\n->")
 
-#=====================if-student================
+              if tries == 0:
 
-        if course in ["1","2","Python","English"] :
-            
-            if country == "EGYPT" :
+                  return False
 
-                if st == "Yes":
+          if pw == password:
 
-                    print(f"Because you from {country} and a student \n you have discount = 50$")
+              print("login in succeed :-) \n    WELCOME  ")
 
-                else:
+              return True
 
-                    print(f"Because you from {country} you have discount = 25$")
-            elif country == "KUWAIT" :
+    verfiy("B1b2b3b4b5#")
+    #price 
+    pricing ={
+        "Python":{
+            "EGYPT":{"Yes": 70 ,
+                    "No": 50
+            },
+            "KSA" :{"Yes": 50 ,
+                    "No": 25
+            },
+            "KUWAIT":{"Yes": 25 ,
+                    "No": 10
+            }    
+        },
+        "English":{
+            "EGYPT":{"Yes": 50 ,
+                    "No": 25
+            },
+            "KSA" :{"Yes": 25 ,
+                    "No": 15
+            },
+            "KUWAIT":{"Yes": 15 ,
+                    "No": 5
+            }    
+        }
+    }
+    def discounts(course , country , student ):
 
-                if st == "Yes":
+        price = pricing[course][country][student]
 
-                    print(f"Because you from {country}  and a student \n you have discount = 20$")
+        if student == "Yes":
 
-                else:
+            print(f"Because you are from {country} and a student \nYour {course} course is --> {price}$ ")
 
-                    print(f"Because you from {country} you have discount = 5$")
-            
-            elif country == "KSA" :
+        if student == "No":
 
-                if st == "Yes":
+            print(f"Because you are from {country}  \nYour {course} course is --> {price}$ ")
 
-                    print(f"Because you from {country}  and a student \n you have discount = 25$")
+        return price
 
-                else:
+    course = input("Enter Your course \n -->").capitalize().strip()
+    country = input("Enter Your country \n -->").upper().strip()
+    student = input("Are you a student ? \n -->").capitalize().strip()
 
-                    print(f"Because you from {country} you have discount = 10$")
+    discounts(course , country , student )
 
-            else:
+    print("Thank you for your time ")
 
-                print("Sorry we don't sell course your country")
+else:
 
-        elif course in ["Arabic","3"]:
-                
-            if country == "EGYPT" :
-
-                if st == "Yes":
-
-                    print(f"Because you from {country} and a student \n you have discount = 70$")
-
-                else:
-
-                    print(f"Because you from {country} you have discount = 50$")
-            
-            elif country == "KUWAIT" :
-
-                if st == "Yes":
-
-                    print(f"Because you from {country} and a student \n you have discount = 50$")
-
-                else:
-
-                    print(f"Because you from {country} you have discount = 25$")
-            
-            elif country == "KSA" :
-
-                if st == "Yes":
-
-                    print(f"Because you from {country} and a student \n you have discount = 55$")
-
-                else:
-
-                    print(f"Because you from {country} you have discount = 30$")
-
-            else:
-                
-
-                print("Sorry we don't sell course your country")
-
-#=====================if-age====================
-
-        if age >= 18 :
-            
-            print(f"Log in successful  {username} with your gmail {gmail}")
-
-        else:
-
-            print(f"Don't allow to log in under limited age \n You can login after {18-age} years .")
-            
-#=======================final===================
-
-        print(f"Thank you for your time {fname}")
-
+    print(f"Sorry you can't login if you <18 \n You can login after { 18-age } years")
