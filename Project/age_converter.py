@@ -1,49 +1,51 @@
-# ===================== Age Calculator =====================
+#        Defind
+def age_converter(age):    
+#        Varible
+    month = age * 12
+    week = age * 52
+    day = week * 7
+    hour = day * 24
+    minute = hour * 60
+    future= 80 + age
+#        Loop
+    while True:
 
-print("=" * 80)
-print("You can write the number or full word".center(80))
-print("=" * 80)
+        op=input("Enter the time operation\n1.Months  2.Weeks  3.Days\n4.Hours  5.minutes  6.After 80\n7.Exit\n-->").capitalize().strip() 
 
-# =====================in put===============================
+        if op in ["1","Months","Month"] :
 
-age = int(input("Enter your age: "))
-op = input("Choose operation:\n1.month\n2.week\n3.day\n4.hour\n5.minute\n6.When will you be 80 years?\n= ").lower()
+            print(f"You lived {month:,} months.")
 
-# ========================variable===========================
+        elif op in ["2","Weeks","Week"]:
 
-month = age * 12
-week = age * 52
-day = week * 7
-hour = day * 24
-minute = hour * 60
-future= 80 - age
+            print(f"You lived {week:,} weeks.")
 
-# =========================If==================================
+        elif op in ["3","Days","Day"]:
 
-if op in ["1", "month"]:
+            print(f"You lived {day:,} days.")
 
-    print(f"You lived {month:,} months.")
+        elif op in ["4","Hours","Hour"]:
 
-elif op in ["2", "week"]:
+            print(f"You lived {hour:,} hours.")
 
-    print(f"You lived {week:,} weeks.")
+        elif op in ["5","minutes","minutes"]:
 
-elif op in ["3", "day"]:
+            print(f"You lived {minute:,} minutes.")
 
-    print(f"You lived {day:,} days.")
+        elif op in ["6","future"]:
 
-elif op in ["4", "hour"]:
+            print(f"You will be {future:,} years old after 80 year.")
 
-    print(f"You lived {hour:,} hours.")
+        elif op in  ["7","Exit"]:
 
-elif op in ["5", "minute"]:
+            print("Good bye I wish a good life to you :-)")
 
-    print(f"You lived {minute:,} minutes.")
+            break
 
-elif op in ["6","When you will be 80 years?"]:
+        else:
 
-    print(f"You will be 80 years after {future:,} years.")
-    
-else:
-
-    print("Use valid operation only.")
+            print("Sorry try again ")
+#        In Put
+age = int(input("Enter your age -->"))
+#        Defind End
+age_converter(age)
